@@ -11,12 +11,11 @@ jobs:
           command: |
             aws cloudformation deploy \
               --template-file template.yml \
-              --stack-name myStack-${CIRCLE_WORKFLOW_ID:0:5} \
+              --stack-name myStack \
               --region us-east-1
 # Sequential workflow
 workflows:
   # Name the workflow
   myWorkflow:
     jobs:
-     # - myjob1
       - create_infrastructure
